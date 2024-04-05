@@ -1,23 +1,31 @@
 package exp_2s5_grupo8;
-
+//grupo8
 import java.util.Scanner;
 import java.util.ArrayList;
-public class Exp_2S5_Grupo8 {
 
+public class Exp_2S5_Grupo8 {
+    
+    public class PreciosTeatro{
+        public static int precioEntrVip = 20000;
+        public static int precioEntrPlat = 15000;
+        public static int precioEntrGnrl = 10000;
+        public static int totalEntradasVend = 0;
+    }
+    
     public static void main(String[] args) {
+        
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> entradasTeatro = new ArrayList<>();
+        
         boolean salir=false;
         String entrVip = "VIP";
         String entrPlat = "Platea";
         String entrGnrl = "General";
-        int precioEntrVip = 20000;
-        int precioEntrPlat = 15000;
-        int precioEntrGnrl = 10000;
+        
         int descEst = 10;
         int descTerEdad = 15;
         int totalIngresos = 0;
-
+        
         while(!salir){
             System.out.println("""
                                [1] Venta de Entradas
@@ -36,7 +44,7 @@ public class Exp_2S5_Grupo8 {
                     int tipoEntrada = scanner.nextInt();
                     switch (tipoEntrada){ //entrada VIP
                         case 1-> {
-                            System.out.println("Ha seleccionado la entrada " + entrVip + " Precio: " + precioEntrVip);
+                            System.out.println("Ha seleccionado la entrada " + entrVip + " Precio: " + PreciosTeatro.precioEntrVip);
                             System.out.println("""
                                    [1] Promocion Estudiante Descuento 10%
                                    [2] Promocion Tercera Edad Descuento 15%
@@ -45,7 +53,7 @@ public class Exp_2S5_Grupo8 {
                             int tipoPromo = scanner.nextInt();
                             if (tipoPromo == 1){
                                System.out.println("Descuento de Estudiante de un 10%");
-                               int precioFinal = precioEntrVip - (descEst*precioEntrVip)/100;
+                               int precioFinal = PreciosTeatro.precioEntrVip - (descEst*PreciosTeatro.precioEntrVip)/100;
                                System.out.println("Precio final " + precioFinal);
                                 System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                 int confirmarEntr = scanner.nextInt();
@@ -61,7 +69,7 @@ public class Exp_2S5_Grupo8 {
                                 int edad = scanner.nextInt();
                                 if (edad >= 65){
                                     System.out.println("Se valida cliente de tercera edad...");
-                                    int precioFinal = precioEntrVip - (descTerEdad*precioEntrVip)/100;
+                                    int precioFinal = PreciosTeatro.precioEntrVip - (descTerEdad*PreciosTeatro.precioEntrVip)/100;
                                     System.out.println("Precio final " + precioFinal);
                                     System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                     int confirmarEntr = scanner.nextInt();
@@ -77,13 +85,13 @@ public class Exp_2S5_Grupo8 {
                                 }
                             }else if (tipoPromo == 3){
                                 System.out.println("Entrada sin promocion");
-                                System.out.println("Precio: " + precioEntrVip);
+                                System.out.println("Precio: " + PreciosTeatro.precioEntrVip);
                                 System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                     int confirmarEntr = scanner.nextInt();
                                     if (confirmarEntr == 1){
                                         System.out.println("Venta registrada en el sistema");
-                                        entradasTeatro.add("Entrada " + entrVip +  " Entrada Normal " + precioEntrVip);
-                                        totalIngresos += precioEntrVip;                                   
+                                        entradasTeatro.add("Entrada " + entrVip +  " Entrada Normal " + PreciosTeatro.precioEntrVip);
+                                        totalIngresos += PreciosTeatro.precioEntrVip;                                   
                                     }else{
                                         System.out.println("Entrada no confirmada...");
                                     }      
@@ -93,7 +101,7 @@ public class Exp_2S5_Grupo8 {
                             }  
                         }//end case 1 sw tipo entrada
                         case 2->{
-                            System.out.println("Ha seleccionado la entrada " + entrPlat + " Precio: " + precioEntrPlat);
+                            System.out.println("Ha seleccionado la entrada " + entrPlat + " Precio: " + PreciosTeatro.precioEntrPlat);
                             System.out.println("""
                                    [1] Promocion Estudiante Descuento 10%
                                    [2] Promocion Tercera Edad Descuento 15%
@@ -102,7 +110,7 @@ public class Exp_2S5_Grupo8 {
                             int tipoPromo = scanner.nextInt();
                             if (tipoPromo == 1){
                                System.out.println("Descuento de Estudiante de un 10%");
-                               int precioFinal = precioEntrPlat - (descEst*precioEntrPlat)/100;
+                               int precioFinal = PreciosTeatro.precioEntrPlat - (descEst*PreciosTeatro.precioEntrPlat)/100;
                                System.out.println("Precio final " + precioFinal);
                                 System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                 int confirmarEntr = scanner.nextInt();
@@ -118,7 +126,7 @@ public class Exp_2S5_Grupo8 {
                                 int edad = scanner.nextInt();
                                 if (edad >= 65){
                                     System.out.println("Se valida cliente de tercera edad...");
-                                    int precioFinal = precioEntrPlat - (descTerEdad*precioEntrPlat)/100;
+                                    int precioFinal = PreciosTeatro.precioEntrPlat - (descTerEdad*PreciosTeatro.precioEntrPlat)/100;
                                     System.out.println("Precio final " + precioFinal);
                                     System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                     int confirmarEntr = scanner.nextInt();
@@ -134,13 +142,13 @@ public class Exp_2S5_Grupo8 {
                                 }
                             }else if (tipoPromo == 3){
                                 System.out.println("Entrada sin promocion");
-                                System.out.println("Precio: " + precioEntrPlat);
+                                System.out.println("Precio: " + PreciosTeatro.precioEntrPlat);
                                 System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                     int confirmarEntr = scanner.nextInt();
                                     if (confirmarEntr == 1){
                                         System.out.println("Venta registrada en el sistema");
-                                        entradasTeatro.add("Entrada " + entrPlat +  " Entrada Normal " + precioEntrPlat);
-                                        totalIngresos += precioEntrPlat;                                   
+                                        entradasTeatro.add("Entrada " + entrPlat +  " Entrada Normal " + PreciosTeatro.precioEntrPlat);
+                                        totalIngresos += PreciosTeatro.precioEntrPlat;                                   
                                     }else{
                                         System.out.println("Entrada no confirmada...");
                                     }      
@@ -150,7 +158,7 @@ public class Exp_2S5_Grupo8 {
                             }  
                         }//end case 2 sw tipo entrada
                         case 3 -> {
-                            System.out.println("Ha seleccionado la entrada " + entrGnrl + " Precio: " + precioEntrGnrl);
+                            System.out.println("Ha seleccionado la entrada " + entrGnrl + " Precio: " + PreciosTeatro.precioEntrGnrl);
                             System.out.println("""
                                    [1] Promocion Estudiante Descuento 10%
                                    [2] Promocion Tercera Edad Descuento 15%
@@ -159,7 +167,7 @@ public class Exp_2S5_Grupo8 {
                             int tipoPromo = scanner.nextInt();
                             if (tipoPromo == 1){
                                System.out.println("Descuento de Estudiante de un 10%");
-                               int precioFinal = precioEntrGnrl - (descEst*precioEntrGnrl)/100;
+                               int precioFinal = PreciosTeatro.precioEntrGnrl - (descEst*PreciosTeatro.precioEntrGnrl)/100;
                                System.out.println("Precio final " + precioFinal);
                                 System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                 int confirmarEntr = scanner.nextInt();
@@ -175,7 +183,7 @@ public class Exp_2S5_Grupo8 {
                                 int edad = scanner.nextInt();
                                 if (edad >= 65){
                                     System.out.println("Se valida cliente de tercera edad...");
-                                    int precioFinal = precioEntrGnrl - (descTerEdad*precioEntrGnrl)/100;
+                                    int precioFinal = PreciosTeatro.precioEntrGnrl - (descTerEdad*PreciosTeatro.precioEntrGnrl)/100;
                                     System.out.println("Precio final " + precioFinal);
                                     System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                     int confirmarEntr = scanner.nextInt();
@@ -191,13 +199,13 @@ public class Exp_2S5_Grupo8 {
                                 }
                             }else if (tipoPromo == 3){
                                 System.out.println("Entrada sin promocion");
-                                System.out.println("Precio: " + precioEntrGnrl);
+                                System.out.println("Precio: " + PreciosTeatro.precioEntrGnrl);
                                 System.out.println("Confirmar Venta de Entrada: [1] Si | [2] No");
                                     int confirmarEntr = scanner.nextInt();
                                     if (confirmarEntr == 1){
                                         System.out.println("Venta registrada en el sistema");
-                                        entradasTeatro.add("Entrada " + entrGnrl +  " Entrada Normal " + precioEntrGnrl);
-                                        totalIngresos += precioEntrGnrl;                                   
+                                        entradasTeatro.add("Entrada " + entrGnrl +  " Entrada Normal " + PreciosTeatro.precioEntrGnrl);
+                                        totalIngresos += PreciosTeatro.precioEntrGnrl;                                   
                                     }else{
                                         System.out.println("Entrada no confirmada...");
                                     }      
@@ -235,8 +243,8 @@ public class Exp_2S5_Grupo8 {
                     }    
                 }
                 case 5 -> {
-                    int totalEntradasVend = entradasTeatro.size();
-                    System.out.println("Total de entradas vendidas: " + totalEntradasVend);
+                    PreciosTeatro.totalEntradasVend=entradasTeatro.size();
+                    System.out.println("Total de entradas vendidas: " + PreciosTeatro.totalEntradasVend);
                     System.out.println("Total de ventas: " + totalIngresos);
                 }
                 case 0 -> {
